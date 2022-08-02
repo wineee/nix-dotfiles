@@ -8,6 +8,7 @@
 
   home.packages = with pkgs; [
     htop
+    direnv
   ];
 
   programs.bat.enable = true;
@@ -16,6 +17,8 @@
     enable = true;
     enableFishIntegration = true;
   };
+
+  services.lorri.enable = true;
 
   services.gpg-agent = {
     enable = true;
