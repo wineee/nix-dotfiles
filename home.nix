@@ -10,6 +10,12 @@
     htop
   ];
 
+  programs.git = {
+    enable = true;
+    userName = "rewine";
+    userEmail = "lhongxu@outlook.com";
+  };
+
   programs.bat.enable = true;
 
   programs.fzf = {
@@ -17,9 +23,12 @@
     enableFishIntegration = true;
   };
 
+  programs.exa.enable = true;
+
+
+
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
-  programs.direnv.nix-direnv.enableFlakes = true;
 
   services.gpg-agent = {
     enable = true;
