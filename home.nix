@@ -16,6 +16,12 @@
     enable = true;
     enableFishIntegration = true;
   };
+
+  services.gpg-agent = {
+    enable = true;
+    defaultCacheTtl = 1800;
+    enableSshSupport = true;
+  };
   
   home.stateVersion = "22.05";
 
