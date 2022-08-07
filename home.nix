@@ -25,7 +25,10 @@
 
   programs.exa.enable = true;
 
-
+  programs.doom-emacs = {
+    enable = true;
+    doomPrivateDir = ./doom.d;
+  };
 
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
