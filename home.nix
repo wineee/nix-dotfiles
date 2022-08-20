@@ -8,6 +8,7 @@
 
   home.packages = with pkgs; [
     htop
+    (writeShellScriptBin "et" "${config.programs.doom-emacs.package}/bin/emacs -nw $@")
   ];
 
   programs.git = {
@@ -27,12 +28,18 @@
 
   programs.doom-emacs = {
     enable = true;
+    package = pkgs.emacsNativeComp;
     doomPrivateDir = ./doom.d;
     emacsPackagesOverlay = self: super: {
      magit-delta = super.magit-delta.overrideAttrs (esuper: {
        buildInputs = esuper.buildInputs ++ [ pkgs.git ];
      });
     };
+    extraPackages = with pkgs; [
+      fd
+      findutils
+      ripgrep
+    ];
   };
 
   programs.direnv.enable = true;
