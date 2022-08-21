@@ -68,13 +68,13 @@
 
 ;; (add-subdirs-to-load-path "~/.doom.d/site-lisp")
 
-(add-load-path! (expand-file-name "~/.doom.d/lisp"))
-;;(require 'init-better-defaults)
+(add-load-path! (expand-file-name "lisp"))
+(require 'init-better-defaults)
 
-(add-load-path! (expand-file-name "~/.doom.d/tool"))
-(push '(progn (require 'init-eaf)
-	      (require 'init-popweb))
-      graphic-only-plugins-setting)
+(add-load-path! (expand-file-name "tool"))
+;;(push '(progn (require 'init-eaf)
+;;	      (require 'init-popweb))
+;;      graphic-only-plugins-setting)
 ;; (require 'init-ncm)
 
 ;; 图形化插件特殊设置
