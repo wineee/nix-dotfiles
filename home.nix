@@ -8,6 +8,7 @@
 
   home.packages = with pkgs; [
     htop
+    ugrep
     (writeShellScriptBin "et" "${config.programs.emacs.package}/bin/emacs -nw $@")
   ];
 
@@ -31,6 +32,7 @@
     enable = true;
     package = pkgs.emacsNativeComp;
   };
+  home.sessionPath = [ "$HOME/.emacs.d/bin" ];
 
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
@@ -39,6 +41,15 @@
     enable = true;
     defaultCacheTtl = 1800;
     enableSshSupport = true;
+  };
+
+  home.sessionVariables = {
+    EDITOR = "nvim";
+  };
+
+  home.shellAliases = {
+    g = "git";
+    "..." = "cd ../..";
   };
   
   home.stateVersion = "22.05";
