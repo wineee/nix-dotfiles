@@ -29,7 +29,7 @@
   nixpkgs.overlays = [ (import inputs.emacs-overlay) ];
   programs.emacs = {
     enable = true;
-    package = pkgs.emacsGitNativeComp;
+    package = pkgs.emacsNativeComp;
   };
 
   programs.direnv.enable = true;
