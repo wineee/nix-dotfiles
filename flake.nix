@@ -7,14 +7,15 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    utils.url = "github:numtide/flake-utils";
-    nix-doom-emacs = {
-      url = "github:nix-community/nix-doom-emacs";
+    flake-utils.url = "github:numtide/flake-utils";
+    emacs-overlay = {
+      url = "github:nix-community/emacs-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-doom-emacs, ... }:
+  outputs = { self, nixpkgs, home-manager, emacs-overlay, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -25,16 +26,16 @@
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
         modules = [
-          nix-doom-emacs.hmModule
           ./home.nix
         ];
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
+        extraSpecialArgs = { inherit inputs; };
       };
 
       desktop = self.homeConfigurations.desktop.activationPackage;
-      apps.x86_64-linux.update-home = {
+      apps.${system}.update-home = {
         type = "app";
         program = (nixpkgs.legacyPackages.x86_64-linux.writeScript "update-home" ''
           set -euo pipefail

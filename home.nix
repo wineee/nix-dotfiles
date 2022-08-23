@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 
 {
   # Home Manager needs a bit of information about you and the
@@ -8,7 +8,7 @@
 
   home.packages = with pkgs; [
     htop
-    (writeShellScriptBin "et" "${config.programs.doom-emacs.package}/bin/emacs -nw $@")
+    (writeShellScriptBin "et" "${config.programs.emacs.package}/bin/emacs -nw $@")
   ];
 
   programs.git = {
@@ -26,20 +26,10 @@
 
   programs.exa.enable = true;
 
-  programs.doom-emacs = {
+  nixpkgs.overlays = [ (import inputs.emacs-overlay) ];
+  programs.emacs = {
     enable = true;
-    package = pkgs.emacsNativeComp;
-    doomPrivateDir = ./doom.d;
-    emacsPackagesOverlay = self: super: {
-     magit-delta = super.magit-delta.overrideAttrs (esuper: {
-       buildInputs = esuper.buildInputs ++ [ pkgs.git ];
-     });
-    };
-    extraPackages = with pkgs; [
-      fd
-      findutils
-      ripgrep
-    ];
+    package = pkgs.emacsGitNativeComp;
   };
 
   programs.direnv.enable = true;
