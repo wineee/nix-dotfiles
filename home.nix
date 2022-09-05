@@ -7,8 +7,10 @@
   home.homeDirectory = "/home/rewine";
 
   home.packages = with pkgs; [
+    jetbrains-mono
     htop
     ugrep
+    ripgrep
     (writeShellScriptBin "et" "${config.programs.emacs.package}/bin/emacs -nw $@")
   ];
 
