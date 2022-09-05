@@ -34,15 +34,14 @@
         extraSpecialArgs = { inherit inputs; };
       };
 
-      desktop = self.homeConfigurations.desktop.activationPackage;
       apps.${system}.update-home = {
         type = "app";
         program = (nixpkgs.legacyPackages.x86_64-linux.writeScript "update-home" ''
-          set -euo pipefail
+          set -eu pipefail
           old_profile=$(nix profile list | grep home-manager-path | head -n1 | awk '{print $4}')
           echo $old_profile
           nix profile remove $old_profile
-          ${self.desktop}/activate || (echo "restoring old profile"; ${nixpkgs.legacyPackages.x86_64-linux.nix}/bin/nix profile install $old_profile)
+          ${self.homeConfigurations.rewine.activationPackage}/activate || (echo "restoring old profile"; ${nixpkgs.legacyPackages.x86_64-linux.nix}/bin/nix profile install $old_profile)
         '').outPath;
       };
     };
