@@ -11,6 +11,7 @@
     htop
     ugrep
     ripgrep
+    fd
     (writeShellScriptBin "et" "${config.programs.emacs.package}/bin/emacs -nw $@")
   ];
 
