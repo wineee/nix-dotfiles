@@ -12,6 +12,9 @@
     ugrep
     ripgrep
     fd
+    nix-index
+    nodejs
+    nodePackages.npm
     (writeShellScriptBin "et" "${config.programs.emacs.package}/bin/emacs -nw $@")
   ];
 
