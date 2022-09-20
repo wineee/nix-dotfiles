@@ -15,6 +15,7 @@
     nix-index
     nodejs
     nodePackages.npm
+    yarn
     (writeShellScriptBin "et" "${config.programs.emacs.package}/bin/emacs -nw $@")
   ];
 
