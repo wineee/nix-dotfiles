@@ -16,6 +16,7 @@
     nodejs
     nodePackages.npm
     yarn
+    hugo
     (writeShellScriptBin "et" "${config.programs.emacs.package}/bin/emacs -nw $@")
   ];
 
