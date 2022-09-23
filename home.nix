@@ -13,6 +13,7 @@
     ripgrep
     fd
     nix-index
+    nix-update
     nodejs
     nodePackages.npm
     yarn
