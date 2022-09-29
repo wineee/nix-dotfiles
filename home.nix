@@ -18,6 +18,7 @@
     nodePackages.npm
     yarn
     hugo
+    cachix
     (writeShellScriptBin "et" "${config.programs.emacs.package}/bin/emacs -nw $@")
   ];
 
