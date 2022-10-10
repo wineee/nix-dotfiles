@@ -31,6 +31,8 @@
     (writeShellScriptBin "et" "${config.programs.emacs.package}/bin/emacs -nw $@")
   ];
 
+  fonts.fontconfig.enable = true; # Allow fontconfig to discover fonts in home.packages
+
   programs.bash.enable = true;
   programs.zsh = {
     enable = true;
