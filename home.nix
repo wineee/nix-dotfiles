@@ -31,14 +31,55 @@
     (writeShellScriptBin "et" "${config.programs.emacs.package}/bin/emacs -nw $@")
   ];
 
+  programs.bash.enable = true;
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    enableSyntaxHighlighting = true;
+    enableAutosuggestions = true;
+    enableVteIntegration = true;
+    cdpath = [ 
+      "$HOME" 
+      "$HOME/dde-nixos"
+      "$HOME/qt-project"
+      "$HOME/.config/nixpkgs"
+    ];
+    dirHashes = {
+      docs  = "$HOME/Documents";
+      vids  = "$HOME/Videos";
+      dl    = "$HOME/Downloads";
+    };
+    # oh-my-zsh.enable = true;
+    prezto = {
+      enable = true;
+      caseSensitive = true;
+      pmodules = [
+        "environment"
+        "terminal"
+        "editor"
+        "history"
+        "directory"
+        "spectrum"
+        "utility"
+        "completion"
+        "prompt"
+        "syntax-highlighting"
+        "history-substring-search"
+      ];
+      editor.keymap = "emacs";
+      prompt.theme = "sorin";
+    };
+  };
+  #environment.pathsToLink = [ "/share/zsh" ];
+
   programs.git = {
     enable = true;
     userName = "rewine";
-    userEmail = "lhongxu@outlook.com";
+    userEmail = "luhongxu@uniontech.com";
     delta.enable = true;
     lfs.enable = false;
     signing = {
-      key = null;
+      key = "0x23BE5D09B80E19ED"; # gpg --full-generate-key
       signByDefault = true;
     };
     aliases = {
