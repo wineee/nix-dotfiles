@@ -8,6 +8,8 @@
 
   home.packages = with pkgs; [
     jetbrains-mono
+
+    neofetch
     htop
     ugrep
     ripgrep
@@ -109,7 +111,8 @@
 
   programs.fzf = {
     enable = true;
-    enableFishIntegration = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
   };
 
   programs.exa = {
