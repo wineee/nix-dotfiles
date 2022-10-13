@@ -9,6 +9,8 @@
   home.packages = with pkgs; [
     jetbrains-mono
 
+    python3Packages.osc
+
     neofetch
     htop
     ugrep
