@@ -15,6 +15,7 @@
     htop
     ugrep
     ripgrep
+    ranger
     fd
     libtree # ldd as a tree
     tldr
