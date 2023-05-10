@@ -38,7 +38,7 @@
 
   fonts.fontconfig.enable = true; # Allow fontconfig to discover fonts in home.packages
 
-  programs.bash.enable = true;
+  # programs.bash.enable = true;
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -82,11 +82,11 @@
   programs.git = {
     enable = true;
     userName = "rewine";
-    userEmail = "luhongxu@uniontech.com";
+    userEmail = "luhongxu@deepin.org";
     delta.enable = true;
     lfs.enable = false;
     signing = {
-      key = "0x23BE5D09B80E19ED"; # gpg --full-generate-key
+      key = null; # gpg --full-generate-key
       signByDefault = true;
     };
     aliases = {
@@ -123,10 +123,8 @@
     enableAliases = true;
   };
 
-  nixpkgs.overlays = [ (import inputs.emacs-overlay) ];
   programs.emacs = {
     enable = true;
-    package = pkgs.emacsNativeComp;
   };
   home.sessionPath = [ "$HOME/.emacs.d/bin" ];
 
