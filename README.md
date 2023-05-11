@@ -24,7 +24,5 @@ nix run .#update-home
 
 ### git
 
-1. use `gpg --full-generate-key` 
-
-
+[generating-a-new-gpg-key](https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)
 
