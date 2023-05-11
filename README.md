@@ -10,6 +10,7 @@ edit `~/.config/nix/nix.conf`:
 
 ```txt
 experimental-features = nix-command flakes
+substituters = https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store https://cache.nixos.org/
 ```
 
 3. Install home-manager
