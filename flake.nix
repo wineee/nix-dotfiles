@@ -10,7 +10,7 @@
     flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, home-manager, emacs-overlay, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, flake-utils, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -29,14 +29,14 @@
         extraSpecialArgs = { inherit inputs; };
       };
 
-      apps.${system}.update-home = {
+      apps.${system}.default = {
         type = "app";
-        program = (nixpkgs.legacyPackages.x86_64-linux.writeScript "update-home" ''
+        program = (nixpkgs.legacyPackages.${system}.writeScript "update-home" ''
           set -eu pipefail
           old_profile=$(nix profile list | grep home-manager-path | head -n1 | awk '{print $4}')
           echo $old_profile
           nix profile remove $old_profile
-          ${self.homeConfigurations.rewine.activationPackage}/activate || (echo "restoring old profile"; ${nixpkgs.legacyPackages.x86_64-linux.nix}/bin/nix profile install $old_profile)
+          ${self.homeConfigurations.rewine.activationPackage}/activate || (echo "restoring old profile"; ${nixpkgs.legacyPackages.${system}.nix}/bin/nix profile install $old_profile)
         '').outPath;
       };
     };
