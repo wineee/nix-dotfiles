@@ -10,6 +10,7 @@ edit `~/.config/nix/nix.conf`:
 
 ```txt
 experimental-features = nix-command flakes
+substituters = https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store https://cache.nixos.org/
 ```
 
 3. Install home-manager
@@ -24,7 +25,5 @@ nix run .#update-home
 
 ### git
 
-1. use `gpg --full-generate-key` 
-
-
+[generating-a-new-gpg-key](https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)
 
