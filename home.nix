@@ -33,6 +33,7 @@
     yarn
     hugo
     cachix
+    v2raya
     (writeShellScriptBin "et" "${config.programs.emacs.package}/bin/emacs -nw $@")
   ];
 
