@@ -2,7 +2,7 @@
 
 1. Install Nix 
 
-> sh <(curl -L https://nixos.org/nix/install) --no-daemon
+> sh <(curl https://mirrors.tuna.tsinghua.edu.cn/nix/latest/install) --no-daemon
 
 2. Enable flake
 
