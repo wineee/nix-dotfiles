@@ -39,7 +39,7 @@
 
   fonts.fontconfig.enable = true; # Allow fontconfig to discover fonts in home.packages
 
-  # programs.bash.enable = true;
+  programs.fish.enable = true;
   programs.zsh = {
     enable = true;
     enableCompletion = true;
