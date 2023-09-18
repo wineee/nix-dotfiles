@@ -35,6 +35,10 @@
     cachix
     v2raya
     (writeShellScriptBin "et" "${config.programs.emacs.package}/bin/emacs -nw $@")
+
+    # chat
+    telegram-desktop
+    cinny
   ];
 
   fonts.fontconfig.enable = true; # Allow fontconfig to discover fonts in home.packages
@@ -88,7 +92,7 @@
     lfs.enable = false;
     signing = {
       key = null; # gpg --full-generate-key
-      signByDefault = true;
+      #signByDefault = true;
     };
     aliases = {
       co = "checkout";
@@ -126,6 +130,7 @@
 
   programs.emacs = {
     enable = true;
+    package = pkgs.emacs29-gtk3;
   };
   home.sessionPath = [ "$HOME/.emacs.d/bin" ];
 
