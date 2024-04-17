@@ -25,10 +25,13 @@
     cloc
     colorpicker
     eza
-    nh
 
+    # nix
+    nh
     nix-index
     nix-update
+    nix-output-monitor
+    nvd
     
     nodejs
     nodePackages.npm
@@ -139,7 +142,7 @@
     "..." = "cd ../..";
   };
   
-  home.stateVersion = "22.05";
+  home.stateVersion = "23.11";
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
