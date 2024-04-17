@@ -25,6 +25,7 @@
     cloc
     colorpicker
     eza
+    nh
 
     nix-index
     nix-update
