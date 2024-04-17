@@ -24,6 +24,7 @@
     pstree
     cloc
     colorpicker
+    eza
 
     nix-index
     nix-update
@@ -46,41 +47,7 @@
   programs.fish.enable = true;
   programs.zsh = {
     enable = true;
-    enableCompletion = true;
-    enableSyntaxHighlighting = true;
-    enableAutosuggestions = true;
-    enableVteIntegration = true;
-    cdpath = [ 
-      "$HOME" 
-      "$HOME/dde-nixos"
-      "$HOME/qt-project"
-      "$HOME/.config/nixpkgs"
-    ];
-    dirHashes = {
-      docs  = "$HOME/Documents";
-      vids  = "$HOME/Videos";
-      dl    = "$HOME/Downloads";
-    };
     # oh-my-zsh.enable = true;
-    prezto = {
-      enable = true;
-      caseSensitive = true;
-      pmodules = [
-        "environment"
-        "terminal"
-        "editor"
-        "history"
-        "directory"
-        "spectrum"
-        "utility"
-        "completion"
-        "prompt"
-        "syntax-highlighting"
-        "history-substring-search"
-      ];
-      editor.keymap = "emacs";
-      prompt.theme = "sorin";
-    };
   };
   #environment.pathsToLink = [ "/share/zsh" ];
 
@@ -121,11 +88,6 @@
     enable = true;
     enableBashIntegration = true;
     enableZshIntegration = true;
-  };
-
-  programs.exa = {
-    enable = true;
-    enableAliases = true;
   };
 
   programs.emacs = {

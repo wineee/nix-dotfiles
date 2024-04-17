@@ -32,6 +32,7 @@
       apps.${system}.default = {
         type = "app";
         program = (nixpkgs.legacyPackages.${system}.writeScript "update-home" ''
+          #!/usr/bin/env bash
           set -eu pipefail
           old_profile=$(nix profile list | grep home-manager-path | head -n1 | awk '{print $4}')
           echo $old_profile
