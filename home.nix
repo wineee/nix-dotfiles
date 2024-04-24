@@ -41,6 +41,8 @@
     nixpkgs-fmt
     nixpkgs-lint
     nixpkgs-review
+
+    nixgl.nixGLIntel
     
     nodejs
     nodePackages.npm
