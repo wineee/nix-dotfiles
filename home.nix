@@ -31,7 +31,16 @@
     nix-index
     nix-update
     nix-output-monitor
+    nix-du
+    nix-tree
+    nix-update
+    nix-init
     nvd
+    comma
+    manix
+    nixpkgs-fmt
+    nixpkgs-lint
+    nixpkgs-review
     
     nodejs
     nodePackages.npm
@@ -44,6 +53,8 @@
     # chat
     telegram-desktop
     cinny
+
+    pineapple-pictures
   ];
 
   fonts.fontconfig.enable = true; # Allow fontconfig to discover fonts in home.packages
