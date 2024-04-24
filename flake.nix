@@ -8,12 +8,19 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-utils.url = "github:numtide/flake-utils";
+    nixgl = {
+      url = "github:nix-community/nixGL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, flake-utils, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, flake-utils, nixgl, ... }@inputs:
     let
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs = import nixpkgs {
+        inherit system;
+        overlays = [ nixgl.overlay ];
+      };
     in {
       homeConfigurations.rewine = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
@@ -27,18 +34,6 @@
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
         extraSpecialArgs = { inherit inputs; };
-      };
-
-      apps.${system}.default = {
-        type = "app";
-        program = (nixpkgs.legacyPackages.${system}.writeScript "update-home" ''
-          #!/usr/bin/env bash
-          set -eu pipefail
-          old_profile=$(nix profile list | grep home-manager-path | head -n1 | awk '{print $4}')
-          echo $old_profile
-          nix profile remove $old_profile
-          ${self.homeConfigurations.rewine.activationPackage}/activate || (echo "restoring old profile"; ${nixpkgs.legacyPackages.${system}.nix}/bin/nix profile install $old_profile)
-        '').outPath;
       };
     };
 }
