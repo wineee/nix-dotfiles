@@ -25,6 +25,7 @@
     cloc
     colorpicker
     eza
+    patchelf
 
     # nix
     nh
