@@ -55,8 +55,6 @@
 
     # chat
     telegram-desktop
-    cinny
-
     pineapple-pictures
 
     # wayland
