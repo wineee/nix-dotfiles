@@ -42,6 +42,7 @@
     nixpkgs-fmt
     nixpkgs-lint
     nixpkgs-review
+    deadnix
 
     nixgl.nixGLIntel
     
