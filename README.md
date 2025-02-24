@@ -1,3 +1,5 @@
+## Config for home-manager
+
 ### Init
 
 1. Install Nix 

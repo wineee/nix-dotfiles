@@ -12,9 +12,13 @@
       url = "github:nix-community/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    rew = {
+      url = "github:wineee/nur-packages";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, flake-utils, nixgl, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, flake-utils, nixgl, rew, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {

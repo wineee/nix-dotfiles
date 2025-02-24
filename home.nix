@@ -53,6 +53,7 @@
     # wayland
     grim
     hyprpicker
+    inputs.rew.packages.${system}.wayland-debug
   ];
 
   fonts.fontconfig.enable = true; # Allow fontconfig to discover fonts in home.packages
