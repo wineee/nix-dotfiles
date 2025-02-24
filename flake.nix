@@ -19,15 +19,12 @@
   };
 
   outputs = { self, nixpkgs, home-manager, flake-utils, nixgl, rew, ... }@inputs:
-    let
-      system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-        overlays = [ nixgl.overlay ];
-      };
-    in {
+    inputs.flake-utils.lib.eachDefaultSystemPassThrough (system: {
       homeConfigurations.rewine = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
+        pkgs = import nixpkgs {
+          inherit system;
+          overlays = [ nixgl.overlay ];
+        };
 
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
@@ -39,5 +36,5 @@
         # to pass through arguments to home.nix
         extraSpecialArgs = { inherit inputs; };
       };
-    };
+    });
 }

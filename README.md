@@ -24,6 +24,12 @@ nix shell nixpkgs#home-manager
 home-manager switch --flake .
 ```
 
+or use nh:
+
+```bash
+nh home switch .
+```
+
 ### git
 
 [generating-a-new-gpg-key](https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)

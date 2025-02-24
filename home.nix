@@ -33,17 +33,15 @@
     nix-tree
     nix-update
     nix-init
-    nvd
     comma
     manix
-    nixpkgs-fmt
+    nixfmt-rfc-style
     nixpkgs-lint
     nixpkgs-review
     deadnix
 
     nixgl.nixGLIntel
     
-    yarn
     hugo
     cachix
 
