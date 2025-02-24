@@ -18,10 +18,9 @@ substituters = https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store https://c
 ```bash
 git clone git@github.com:wineee/nix-dotfiles.git
 cd nix-dotfiles
-nix run .#update-home
+nix shell nixpkgs#home-manager
+home-manager switch --flake .
 ```
-
-
 
 ### git
 

@@ -9,8 +9,6 @@
   home.packages = with pkgs; [
     jetbrains-mono
 
-    python3Packages.osc
-
     neofetch
     htop
     ugrep
@@ -23,7 +21,6 @@
     ncdu
     pstree
     cloc
-    colorpicker
     eza
     patchelf
 
@@ -46,29 +43,21 @@
 
     nixgl.nixGLIntel
     
-    nodejs
-    nodePackages.npm
     yarn
     hugo
     cachix
-    v2raya
-    (writeShellScriptBin "et" "${config.programs.emacs.package}/bin/emacs -nw $@")
 
     # chat
-    telegram-desktop
     pineapple-pictures
 
     # wayland
     grim
+    hyprpicker
   ];
 
   fonts.fontconfig.enable = true; # Allow fontconfig to discover fonts in home.packages
 
   programs.fish.enable = true;
-  programs.zsh = {
-    enable = true;
-    # oh-my-zsh.enable = true;
-  };
   #environment.pathsToLink = [ "/share/zsh" ];
 
   programs.git = {
@@ -103,17 +92,8 @@
   };
 
   programs.bat.enable = true;
+  programs.fzf.enable = true;
 
-  programs.fzf = {
-    enable = true;
-    enableBashIntegration = true;
-    enableZshIntegration = true;
-  };
-
-  programs.emacs = {
-    enable = true;
-    package = pkgs.emacs29-gtk3;
-  };
   home.sessionPath = [ "$HOME/.emacs.d/bin" ];
 
   programs = {
@@ -158,7 +138,7 @@
     "..." = "cd ../..";
   };
   
-  home.stateVersion = "23.11";
+  home.stateVersion = "24.11";
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
