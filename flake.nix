@@ -18,7 +18,16 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, flake-utils, nixgl, rew, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      flake-utils,
+      nixgl,
+      rew,
+      ...
+    }@inputs:
     inputs.flake-utils.lib.eachDefaultSystemPassThrough (system: {
       homeConfigurations.rewine = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {

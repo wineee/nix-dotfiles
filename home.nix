@@ -1,4 +1,9 @@
-{ inputs, config, pkgs, ... }:
+{
+  inputs,
+  config,
+  pkgs,
+  ...
+}:
 
 {
   # Home Manager needs a bit of information about you and the
@@ -41,7 +46,7 @@
     deadnix
 
     nixgl.nixGLIntel
-    
+
     hugo
     cachix
 
@@ -86,7 +91,10 @@
       core.compression = 0;
       http.postBuffer = 1048576000;
       protocol."https".allow = "always";
-      url."https://github.com/".insteadOf = [ "gh:" "github:" ];
+      url."https://github.com/".insteadOf = [
+        "gh:"
+        "github:"
+      ];
     };
   };
 
@@ -136,7 +144,7 @@
     g = "git";
     "..." = "cd ../..";
   };
-  
+
   home.stateVersion = "24.11";
 
   # Let Home Manager install and manage itself.
