@@ -56,13 +56,16 @@
     # wayland
     grim
     hyprpicker
-    inputs.rew.packages.${system}.wayland-debug
-  ];
+  ] ++ (with inputs.rew.packages.${system}; [ 
+    wayland-debug
+    wlhax
+    wldbg
+    xcursor-viewer
+  ]);
 
   fonts.fontconfig.enable = true; # Allow fontconfig to discover fonts in home.packages
 
   programs.fish.enable = true;
-  #environment.pathsToLink = [ "/share/zsh" ];
 
   programs.git = {
     enable = true;
