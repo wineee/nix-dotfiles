@@ -18,7 +18,7 @@
     htop
     ugrep
     ripgrep
-    ranger
+    yazi
     fd
     libtree # ldd as a tree
     tldr
