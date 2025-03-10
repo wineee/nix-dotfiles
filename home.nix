@@ -29,6 +29,8 @@
     eza
     patchelf
 
+    debian-devscripts
+
     # nix
     nh
     nix-index
