@@ -90,33 +90,12 @@
         "type": "github"
       }
     },
-    "rew": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1741572796,
-        "narHash": "sha256-ksqBK8N6gF5pXK2X2j3Peq7EXeqFyXHrFd/CESavtDQ=",
-        "owner": "wineee",
-        "repo": "nur-packages",
-        "rev": "81ce6150b4b8f406946b243c9d7dee876a031143",
-        "type": "github"
-      },
-      "original": {
-        "owner": "wineee",
-        "repo": "nur-packages",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
         "nixgl": "nixgl",
-        "nixpkgs": "nixpkgs",
-        "rew": "rew"
+        "nixpkgs": "nixpkgs"
       }
     },
     "systems": {

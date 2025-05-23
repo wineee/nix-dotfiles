@@ -1,5 +1,5 @@
 {
-  description = "Home Manager configuration for Me QwQ";
+  description = "Home Manager configuration";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -12,10 +12,6 @@
       url = "github:nix-community/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    rew = {
-      url = "github:wineee/nur-packages";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
@@ -25,22 +21,20 @@
       home-manager,
       flake-utils,
       nixgl,
-      rew,
       ...
     }@inputs:
     inputs.flake-utils.lib.eachDefaultSystemPassThrough (system: {
-      homeConfigurations.rewine = home-manager.lib.homeManagerConfiguration {
+      # 将 test 修改为你的用户名
+      homeConfigurations.test = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {
           inherit system;
           overlays = [ nixgl.overlay ];
         };
-
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
         modules = [
           ./home.nix
         ];
-
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
         extraSpecialArgs = { inherit inputs; };
