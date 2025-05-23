@@ -14,6 +14,7 @@
     # comma
     # manix
     # nixgl.nixGLIntel
+    just
   ];
 
   # programs.fish.enable = true;
@@ -23,7 +24,7 @@
   #   nix-direnv.enable = true;
   # };
 
-  home.stateVersion = "25.05";
+  home.stateVersion = "25.11";
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
