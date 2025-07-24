@@ -14,7 +14,7 @@
   home.packages = with pkgs; [
     jetbrains-mono
 
-    neofetch
+    fastfetch
     htop
     ugrep
     ripgrep
@@ -28,8 +28,9 @@
     cloc
     eza
     patchelf
+    just
 
-    debian-devscripts
+    #debian-devscripts
 
     # nix
     nh
@@ -60,9 +61,10 @@
     hyprpicker
   ] ++ (with inputs.rew.packages.${system}; [ 
     wayland-debug
-    wlhax
     wldbg
     xcursor-viewer
+    wlhax
+    git-commit-helper
   ]);
 
   fonts.fontconfig.enable = true; # Allow fontconfig to discover fonts in home.packages
