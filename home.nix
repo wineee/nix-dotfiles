@@ -29,6 +29,10 @@
     eza
     patchelf
     just
+    gh
+
+    # wmenu
+    rofi
 
     #debian-devscripts
 
@@ -59,6 +63,15 @@
     # wayland
     grim
     hyprpicker
+    wl-clipboard
+    wlr-randr
+    lswt
+    wlrctl
+
+
+    # ui
+    obs-studio
+    wayvnc
   ] ++ (with inputs.rew.packages.${system}; [ 
     wayland-debug
     wldbg
