@@ -30,6 +30,7 @@
     patchelf
     just
     gh
+    lnav
 
     # wmenu
     rofi
@@ -70,7 +71,7 @@
 
 
     # ui
-    obs-studio
+    emacs
     wayvnc
   ] ++ (with inputs.rew.packages.${system}; [ 
     wayland-debug
