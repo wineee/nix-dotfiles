@@ -11,75 +11,78 @@
   home.username = "rewine";
   home.homeDirectory = "/home/rewine";
 
-  home.packages = with pkgs; [
-    jetbrains-mono
+  home.packages =
+    with pkgs;
+    [
+      jetbrains-mono
 
-    fastfetch
-    htop
-    ugrep
-    ripgrep
-    yazi
-    fd
-    libtree # ldd as a tree
-    tldr
-    duf
-    ncdu
-    pstree
-    cloc
-    eza
-    patchelf
-    just
-    gh
-    lnav
+      fastfetch
+      htop
+      ugrep
+      ripgrep
+      yazi
+      fd
+      libtree # ldd as a tree
+      tldr
+      duf
+      ncdu
+      pstree
+      cloc
+      eza
+      patchelf
+      just
+      gh
+      lnav
 
-    # wmenu
-    rofi
+      # wmenu
+      rofi
 
-    #debian-devscripts
+      #debian-devscripts
 
-    # nix
-    nh
-    nix-index
-    nix-update
-    nix-output-monitor
-    nix-du
-    nix-tree
-    nix-update
-    nix-init
-    comma
-    manix
-    nixfmt-rfc-style
-    nixpkgs-lint
-    nixpkgs-review
-    deadnix
+      # nix
+      nh
+      nix-index
+      nix-update
+      nix-output-monitor
+      nix-du
+      nix-tree
+      nix-update
+      nix-init
+      comma
+      manix
+      nixfmt-rfc-style
+      nixpkgs-lint
+      nixpkgs-review
+      deadnix
 
-    nixgl.nixGLIntel
+      nixgl.nixGLIntel
 
-    hugo
-    cachix
+      hugo
+      cachix
 
-    # chat
-    pineapple-pictures
+      # chat
+      pineapple-pictures
 
-    # wayland
-    grim
-    hyprpicker
-    wl-clipboard
-    wlr-randr
-    lswt
-    wlrctl
+      # wayland
+      grim
+      hyprpicker
+      wl-clipboard
+      wlr-randr
+      lswt
+      wlrctl
+      wayfarer
 
-
-    # ui
-    emacs
-    wayvnc
-  ] ++ (with inputs.rew.packages.${system}; [ 
-    wayland-debug
-    wldbg
-    xcursor-viewer
-    wlhax
-    git-commit-helper
-  ]);
+      # ui
+      emacs-pgtk
+      wayvnc
+    ]
+    ++ (with inputs.rew.packages.${system}; [
+      wayland-debug
+      wldbg
+      xcursor-viewer
+      wlhax
+      git-commit-helper
+    ]);
 
   fonts.fontconfig.enable = true; # Allow fontconfig to discover fonts in home.packages
 
@@ -130,18 +133,6 @@
       viAlias = true;
       vimAlias = true;
       vimdiffAlias = true;
-      coc.enable = true;
-      plugins = with pkgs.vimPlugins; [
-        fugitive
-        vim-nix
-        {
-          plugin = vim-startify;
-          config = "let g:startify_change_to_vcs_root = 0";
-        }
-      ];
-      extraConfig = ''
-        set whichwrap+=<,>,[,],h,l
-      '';
     };
   };
 
