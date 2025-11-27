@@ -1,15 +1,13 @@
-{
-  inputs,
+{ inputs,
   config,
   pkgs,
+  username,
   ...
 }:
 
-{
-  # Home Manager needs a bit of information about you and the
-  # paths it should manage.
-  home.username = "rewine";
-  home.homeDirectory = "/home/rewine";
+{ 
+  home.username = username;
+  home.homeDirectory = "/home/${username}";
 
   home.packages =
     with pkgs;
@@ -40,10 +38,8 @@
       #debian-devscripts
 
       # nix
-      nh
       nix-index
       nix-update
-      nix-output-monitor
       nix-du
       nix-tree
       nix-update
@@ -51,10 +47,7 @@
       comma
       manix
       nixfmt-rfc-style
-      nixpkgs-lint
       nixpkgs-review
-      deadnix
-
       nixgl.nixGLIntel
 
       hugo
@@ -74,13 +67,14 @@
 
       # ui
       wayvnc
+      contour
     ]
     ++ (with inputs.rew.packages.${system}; [
       wayland-debug
-      wldbg
-      xcursor-viewer
-      wlhax
-      git-commit-helper
+      #wldbg
+      #xcursor-viewer
+      #wlhax
+      #git-commit-helper
     ]);
 
   fonts.fontconfig.enable = true; # Allow fontconfig to discover fonts in home.packages
@@ -95,7 +89,7 @@
     lfs.enable = false;
     signing = {
       key = null; # gpg --full-generate-key
-      #signByDefault = true;
+      signByDefault = true;
     };
     aliases = {
       co = "checkout";
@@ -138,13 +132,6 @@
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
-  };
-
-  programs.gpg.enable = true;
-  services.gpg-agent = {
-    enable = true;
-    defaultCacheTtl = 1800;
-    enableSshSupport = true;
   };
 
   home.sessionVariables = {

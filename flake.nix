@@ -28,8 +28,12 @@
       rew,
       ...
     }@inputs:
+    let
+      username = let u = builtins.getEnv "USER"; in if u == "" then "deepin" else u;
+    in
+
     inputs.flake-utils.lib.eachDefaultSystemPassThrough (system: {
-      homeConfigurations.rewine = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {
           inherit system;
           overlays = [ nixgl.overlay ];
@@ -43,7 +47,7 @@
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
-        extraSpecialArgs = { inherit inputs; };
+        extraSpecialArgs = { inherit inputs username; };
       };
     });
 }
