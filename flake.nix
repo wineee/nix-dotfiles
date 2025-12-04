@@ -29,7 +29,11 @@
       ...
     }@inputs:
     let
-      username = let u = builtins.getEnv "USER"; in if u == "" then "deepin" else u;
+      username =
+        let
+          u = builtins.getEnv "USER";
+        in
+        if u == "" then "deepin" else u;
     in
 
     inputs.flake-utils.lib.eachDefaultSystemPassThrough (system: {
@@ -37,6 +41,9 @@
         pkgs = import nixpkgs {
           inherit system;
           overlays = [ nixgl.overlay ];
+          config = {
+            allowUnfree = true;
+          };
         };
 
         # Specify your home configuration modules here, for example,

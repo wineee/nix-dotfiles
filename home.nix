@@ -1,11 +1,12 @@
-{ inputs,
+{
+  inputs,
   config,
   pkgs,
   username,
   ...
 }:
 
-{ 
+{
   home.username = username;
   home.homeDirectory = "/home/${username}";
 
@@ -65,9 +66,11 @@
       wlrctl
       wayfarer
 
+      # ai 
+      github-copilot-cli
+
       # ui
       wayvnc
-      contour
     ]
     ++ (with inputs.rew.packages.${system}; [
       wayland-debug
