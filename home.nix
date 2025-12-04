@@ -86,26 +86,22 @@
 
   programs.git = {
     enable = true;
-    userName = "rewine";
-    userEmail = "luhongxu@deepin.org";
-    delta.enable = true;
-    lfs.enable = false;
-    signing = {
-      key = null; # gpg --full-generate-key
-      signByDefault = true;
-    };
-    aliases = {
-      co = "checkout";
-      ci = "commit";
-      cia = "commit --amend";
-      s = "status";
-      st = "status";
-      b = "branch";
-      p = "pull --rebase";
-      pu = "push";
-      d = "diff";
-    };
-    extraConfig = {
+    settings = {
+      user = {
+        name = "rewine";
+        email = "luhongxu@deepin.org";
+      };
+      alias = {
+        co = "checkout";
+        ci = "commit";
+        cia = "commit --amend";
+        s = "status";
+        st = "status";
+        b = "branch";
+        p = "pull --rebase";
+        pu = "push";
+        d = "diff";
+      };
       init.defaultBranch = "main";
       push.autoSetupRemote = true;
       core.compression = 0;
@@ -116,6 +112,17 @@
         "github:"
       ];
     };
+    lfs.enable = false;
+    signing = {
+      key = null; # gpg --full-generate-key
+      signByDefault = true;
+    };
+  };
+
+  programs.delta = {
+    enable = true;
+    # Explicitly enable delta's git integration (automatic enablement is deprecated)
+    enableGitIntegration = true;
   };
 
   programs.bat.enable = true;
