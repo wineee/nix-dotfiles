@@ -13,8 +13,6 @@
   home.packages =
     with pkgs;
     [
-      jetbrains-mono
-
       fastfetch
       htop
       ugrep
@@ -30,11 +28,8 @@
       eza
       patchelf
       just
-      gh
-      lnav
 
-      # wmenu
-      rofi
+      lnav
 
       #debian-devscripts
 
@@ -43,7 +38,6 @@
       nix-update
       nix-du
       nix-tree
-      nix-update
       nix-init
       comma
       manix
@@ -66,7 +60,7 @@
       wlrctl
       wayfarer
 
-      # ai 
+      # ai
       github-copilot-cli
 
       # ui
@@ -77,10 +71,10 @@
       #wldbg
       #xcursor-viewer
       #wlhax
-      #git-commit-helper
+      git-commit-helper
     ]);
 
-  fonts.fontconfig.enable = true; # Allow fontconfig to discover fonts in home.packages
+  # fonts.fontconfig.enable = true; # Allow fontconfig to discover fonts in home.packages
 
   programs.fish.enable = true;
 
