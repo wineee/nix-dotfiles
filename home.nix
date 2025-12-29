@@ -62,6 +62,8 @@
 
       # ai
       github-copilot-cli
+      opencode
+      qwen-code
 
       # ui
       wayvnc

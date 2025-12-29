@@ -29,11 +29,7 @@
       ...
     }@inputs:
     let
-      username =
-        let
-          u = builtins.getEnv "USER";
-        in
-        if u == "" then "deepin" else u;
+      username = builtins.getEnv "USER";
     in
 
     inputs.flake-utils.lib.eachDefaultSystemPassThrough (system: {
