@@ -107,10 +107,10 @@
       ];
     };
     lfs.enable = false;
-    signing = {
-      key = null; # gpg --full-generate-key
-      signByDefault = true;
-    };
+    #signing = {
+    #  key = null; # gpg --full-generate-key
+    #  signByDefault = true;
+    #};
   };
 
   programs.delta = {
