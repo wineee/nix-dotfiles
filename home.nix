@@ -13,6 +13,13 @@
   home.packages =
     with pkgs;
     [
+<<<<<<< HEAD
+=======
+      jetbrains-mono
+      nerd-fonts.jetbrains-mono
+      fira-code-symbols
+
+>>>>>>> 6d6cb5b (Update font)
       fastfetch
       htop
       ugrep
@@ -77,8 +84,7 @@
       git-commit-helper
     ]);
 
-  # fonts.fontconfig.enable = true; # Allow fontconfig to discover fonts in home.packages
-
+  fonts.fontconfig.enable = true; # Allow fontconfig to discover fonts in home.packages
   programs.fish.enable = true;
 
   programs.git = {
