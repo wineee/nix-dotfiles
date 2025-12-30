@@ -31,6 +31,7 @@
 
       lnav
 
+      systemctl-tui
       #debian-devscripts
 
       # nix
