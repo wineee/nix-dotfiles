@@ -99,11 +99,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1762748787,
-        "narHash": "sha256-uqW9l761YZmrJXPIbiAj578/6SSDSebrMqxSwy3SexQ=",
+        "lastModified": 1766974707,
+        "narHash": "sha256-5YY9FUKAryjB2/gMhvrrlKi9lIa8cyqLNdhZo7tFcWQ=",
         "owner": "wineee",
         "repo": "nur-packages",
-        "rev": "58686160f44b080e06ab690828c9e5f9f2146614",
+        "rev": "07eda85626f4cc9888f6dee2a52d03747dcc5b57",
         "type": "github"
       },
       "original": {
