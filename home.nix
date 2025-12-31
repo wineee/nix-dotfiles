@@ -13,13 +13,10 @@
   home.packages =
     with pkgs;
     [
-<<<<<<< HEAD
-=======
       jetbrains-mono
       nerd-fonts.jetbrains-mono
       fira-code-symbols
 
->>>>>>> 6d6cb5b (Update font)
       fastfetch
       htop
       ugrep
@@ -75,6 +72,7 @@
 
       # ui
       wayvnc
+      nodejs
     ]
     ++ (with inputs.rew.packages.${system}; [
       wayland-debug
