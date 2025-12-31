@@ -36,6 +36,8 @@
       nixfmt-rfc-style
       nixpkgs-review
       (inputs.system-manager.packages.${pkgs.stdenv.hostPlatform.system}.default)
+
+      telegram-desktop
     ]
     ++ (with inputs.rew.packages.${pkgs.stdenv.hostPlatform.system}; [
       wayland-debug

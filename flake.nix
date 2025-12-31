@@ -45,18 +45,15 @@
             allowUnfree = true;
           };
         };
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
+
         modules = [
           ./home.nix
         ];
 
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
         extraSpecialArgs = { inherit inputs username system; };
       };
 
-      systemConfigs.${username} = system-manager.lib.makeSystemConfig {
+      systemConfigs.default = system-manager.lib.makeSystemConfig {
         modules = [
           nix-system-graphics.systemModules.default
           {
