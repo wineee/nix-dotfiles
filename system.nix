@@ -32,6 +32,8 @@
 
       # ui
       pineapple-pictures
+      vlc
+      obs-studio
 
       # wayland
       grim

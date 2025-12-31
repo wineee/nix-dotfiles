@@ -37,6 +37,7 @@
       nixpkgs-review
       (inputs.system-manager.packages.${pkgs.stdenv.hostPlatform.system}.default)
 
+      neovide
       telegram-desktop
     ]
     ++ (with inputs.rew.packages.${pkgs.stdenv.hostPlatform.system}; [
