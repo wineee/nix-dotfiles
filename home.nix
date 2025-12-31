@@ -48,7 +48,7 @@
       manix
       nixfmt-rfc-style
       nixpkgs-review
-      nixgl.nixGLIntel
+      (inputs.system-manager.packages.${pkgs.stdenv.hostPlatform.system}.default)
 
       hugo
       cachix
@@ -74,7 +74,7 @@
       wayvnc
       nodejs
     ]
-    ++ (with inputs.rew.packages.${system}; [
+    ++ (with inputs.rew.packages.${pkgs.stdenv.hostPlatform.system}; [
       wayland-debug
       #wldbg
       #xcursor-viewer

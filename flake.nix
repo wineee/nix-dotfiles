@@ -8,8 +8,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-utils.url = "github:numtide/flake-utils";
-    nixgl = {
-      url = "github:nix-community/nixGL";
+    system-manager = {
+      url = "github:numtide/system-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-system-graphics = {
+      url = "github:soupglasses/nix-system-graphics";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     rew = {
@@ -24,19 +28,19 @@
       nixpkgs,
       home-manager,
       flake-utils,
-      nixgl,
+      system-manager,
+      nix-system-graphics,
       rew,
       ...
     }@inputs:
     let
-      username = builtins.getEnv "USER";
+      username = "deepin";
     in
 
-    inputs.flake-utils.lib.eachDefaultSystemPassThrough (system: {
+    flake-utils.lib.eachDefaultSystem (system: {
       homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {
           inherit system;
-          overlays = [ nixgl.overlay ];
           config = {
             allowUnfree = true;
           };
@@ -50,7 +54,39 @@
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
-        extraSpecialArgs = { inherit inputs username; };
+        extraSpecialArgs = { inherit inputs username system; };
+      };
+
+      systemConfigs.${username} = system-manager.lib.makeSystemConfig {
+        modules = [
+          nix-system-graphics.systemModules.default
+                        {
+                nix = {
+                  settings = {
+                    substituters = [
+                      "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+                      "https://rewine.cachix.org"
+                      #"https://cache.garnix.io"
+                      "https://cache.lix.systems"
+                    ];
+                    trusted-public-keys = [
+                      "rewine.cachix.org-1:aOIg9PvwuSefg59gVXXxGIInHQI9fMpskdyya2xO+7I="
+                      # "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
+                      "cache.lix.systems:aBnZUw8zA7H35Cz2RyKFVs3H4PlGTLawyY5KRbvJR8o="
+                    ];
+                    trusted-users = [ "rewine" "deepin" ];
+                    experimental-features = "nix-command flakes";
+                  };
+                };
+              }
+          ({ ... }: {
+            config = {
+              nixpkgs.hostPlatform = system;
+              system-manager.allowAnyDistro = true;
+              system-graphics.enable = true;
+            };
+          })
+        ];
       };
     });
 }
