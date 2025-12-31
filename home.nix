@@ -17,19 +17,6 @@
       nerd-fonts.jetbrains-mono
       fira-code-symbols
 
-      fastfetch
-      htop
-      ugrep
-      ripgrep
-      yazi
-      fd
-      libtree # ldd as a tree
-      tldr
-      duf
-      ncdu
-      pstree
-      cloc
-      eza
       patchelf
       just
 
@@ -49,31 +36,6 @@
       nixfmt-rfc-style
       nixpkgs-review
       (inputs.system-manager.packages.${pkgs.stdenv.hostPlatform.system}.default)
-      nixd
-
-      hugo
-      cachix
-
-      # chat
-      pineapple-pictures
-
-      # wayland
-      grim
-      hyprpicker
-      wl-clipboard
-      wlr-randr
-      lswt
-      wlrctl
-      wayfarer
-
-      # ai
-      github-copilot-cli
-      opencode
-      qwen-code
-
-      # ui
-      wayvnc
-      nodejs
     ]
     ++ (with inputs.rew.packages.${pkgs.stdenv.hostPlatform.system}; [
       wayland-debug
