@@ -37,7 +37,7 @@
       username = "deepin";
     in
 
-    flake-utils.lib.eachDefaultSystem (system: {
+    flake-utils.lib.eachDefaultSystemPassThrough (system: {
       homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {
           inherit system;
@@ -45,7 +45,6 @@
             allowUnfree = true;
           };
         };
-
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
         modules = [

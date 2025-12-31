@@ -49,6 +49,7 @@
       nixfmt-rfc-style
       nixpkgs-review
       (inputs.system-manager.packages.${pkgs.stdenv.hostPlatform.system}.default)
+      nixd
 
       hugo
       cachix
