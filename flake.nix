@@ -60,33 +60,31 @@
       systemConfigs.${username} = system-manager.lib.makeSystemConfig {
         modules = [
           nix-system-graphics.systemModules.default
-                        {
-                nix = {
-                  settings = {
-                    substituters = [
-                      "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
-                      "https://rewine.cachix.org"
-                      #"https://cache.garnix.io"
-                      "https://cache.lix.systems"
-                    ];
-                    trusted-public-keys = [
-                      "rewine.cachix.org-1:aOIg9PvwuSefg59gVXXxGIInHQI9fMpskdyya2xO+7I="
-                      # "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
-                      "cache.lix.systems:aBnZUw8zA7H35Cz2RyKFVs3H4PlGTLawyY5KRbvJR8o="
-                    ];
-                    trusted-users = [ "rewine" "deepin" ];
-                    experimental-features = "nix-command flakes";
-                  };
-                };
-              }
-          ({ ... }: {
-            config = {
-              nixpkgs.hostPlatform = system;
-              system-manager.allowAnyDistro = true;
-              system-graphics.enable = true;
+          {
+            nix = {
+              settings = {
+                substituters = [
+                  "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+                  "https://rewine.cachix.org"
+                  #"https://cache.garnix.io"
+                  "https://cache.lix.systems"
+                ];
+                trusted-public-keys = [
+                  "rewine.cachix.org-1:aOIg9PvwuSefg59gVXXxGIInHQI9fMpskdyya2xO+7I="
+                  # "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
+                  "cache.lix.systems:aBnZUw8zA7H35Cz2RyKFVs3H4PlGTLawyY5KRbvJR8o="
+                ];
+                trusted-users = [
+                  "rewine"
+                  "deepin"
+                ];
+                experimental-features = "nix-command flakes";
+              };
             };
-          })
+          }
+          ./system.nix
         ];
+        extraSpecialArgs = { inherit inputs system; };
       };
     });
 }
