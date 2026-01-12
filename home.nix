@@ -22,8 +22,10 @@
 
       lnav
 
-      systemctl-tui
       #debian-devscripts
+      antigravity
+      kiro
+      code-cursor
 
       # nix
       nix-index
@@ -36,6 +38,8 @@
       nixfmt-rfc-style
       nixpkgs-review
       (inputs.system-manager.packages.${pkgs.stdenv.hostPlatform.system}.default)
+
+      gh
 
       neovide
       telegram-desktop
@@ -94,17 +98,6 @@
 
   programs.bat.enable = true;
   programs.fzf.enable = true;
-
-  home.sessionPath = [ "$HOME/.emacs.d/bin" ];
-
-  programs = {
-    neovim = {
-      enable = true;
-      viAlias = true;
-      vimAlias = true;
-      vimdiffAlias = true;
-    };
-  };
 
   programs.direnv = {
     enable = true;

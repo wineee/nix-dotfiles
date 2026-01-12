@@ -9,6 +9,7 @@
     system-graphics.enable = true;
 
     environment.systemPackages = with pkgs; [
+      neovim
       fastfetch
       htop
       ugrep
@@ -22,6 +23,7 @@
       pstree
       cloc
       eza
+      systemctl-tuii
 
       # dev
       nodejs
