@@ -23,8 +23,7 @@
       pstree
       cloc
       eza
-      systemctl-tuii
-
+      systemctl-tui
       # dev
       nodejs
       nil
@@ -44,6 +43,9 @@
       wlr-randr
       lswt
       wlrctl
+      niri
+      hyprland
+
       # ai
       github-copilot-cli
       opencode
