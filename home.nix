@@ -42,9 +42,12 @@
       (inputs.system-manager.packages.${pkgs.stdenv.hostPlatform.system}.default)
 
       gh
+      bun
 
       neovide
       telegram-desktop
+      logseq
+      dms-shell
     ]
     ++ (with inputs.rew.packages.${pkgs.stdenv.hostPlatform.system}; [
       wayland-debug
