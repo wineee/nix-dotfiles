@@ -37,7 +37,7 @@
       nix-init
       comma
       manix
-      nixfmt-rfc-style
+      nixfmt
       nixpkgs-review
       (inputs.system-manager.packages.${pkgs.stdenv.hostPlatform.system}.default)
 
@@ -46,7 +46,8 @@
 
       neovide
       telegram-desktop
-      logseq
+      # logseq
+      fractal
       dms-shell
     ]
     ++ (with inputs.rew.packages.${pkgs.stdenv.hostPlatform.system}; [
