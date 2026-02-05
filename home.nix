@@ -28,6 +28,7 @@
       antigravity
       kiro
       code-cursor
+      codex
 
       # nix
       nix-index
