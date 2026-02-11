@@ -29,7 +29,8 @@
       kiro
       code-cursor
       codex
-
+      #gitbutler
+      
       # nix
       nix-index
       nix-update
