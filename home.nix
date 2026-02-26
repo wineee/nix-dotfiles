@@ -29,6 +29,7 @@
       kiro
       code-cursor
       codex
+      claude-code
       #gitbutler
       
       # nix
