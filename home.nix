@@ -30,7 +30,8 @@
       code-cursor
       codex
       claude-code
-      #gitbutler
+      gemini-cli
+      gitbutler
       
       # nix
       nix-index
