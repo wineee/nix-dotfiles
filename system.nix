@@ -10,6 +10,7 @@
 
     environment.systemPackages = with pkgs; [
       neovim
+      xonsh
       fastfetch
       htop
       ugrep
