@@ -34,7 +34,11 @@
       ...
     }@inputs:
     let
-      username = "deepin";
+      username =
+        let
+          envUser = builtins.getEnv "USER";
+        in
+        if envUser == "" then "rewine" else envUser;
     in
 
     flake-utils.lib.eachDefaultSystemPassThrough (system: {

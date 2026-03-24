@@ -10,7 +10,6 @@
 
     environment.systemPackages = with pkgs; [
       neovim
-      xonsh
       fastfetch
       htop
       ugrep
@@ -35,7 +34,6 @@
       # ui
       pineapple-pictures
       vlc
-      obs-studio
 
       # wayland
       grim
@@ -44,13 +42,9 @@
       wlr-randr
       lswt
       wlrctl
-      niri
-      hyprland
 
       # ai
-      github-copilot-cli
       opencode
-      qwen-code
     ];
   };
 }
