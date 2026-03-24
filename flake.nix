@@ -41,20 +41,31 @@
         if envUser == "" then "rewine" else envUser;
     in
 
-    flake-utils.lib.eachDefaultSystemPassThrough (system: {
-      homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
+    flake-utils.lib.eachDefaultSystemPassThrough (system:
+      let
         pkgs = import nixpkgs {
           inherit system;
           config = {
             allowUnfree = true;
           };
         };
+      in
+      {
+      homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
 
         modules = [
           ./home.nix
         ];
 
         extraSpecialArgs = { inherit inputs username system; };
+      };
+
+      apps.${system}.default = {
+        type = "app";
+        program = "${pkgs.writeShellScript "hm-switch" ''
+          exec ${home-manager.packages.${system}.home-manager}/bin/home-manager switch --flake . --impure "$@"
+        ''}";
       };
 
       systemConfigs.default = system-manager.lib.makeSystemConfig {
