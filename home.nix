@@ -25,13 +25,12 @@
       rustup
 
       #debian-devscripts
-      antigravity
+      #antigravity
       kiro
       code-cursor
       codex
       claude-code
       gemini-cli
-      gitbutler
       
       # nix
       nix-index
