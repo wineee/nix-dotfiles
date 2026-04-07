@@ -23,6 +23,9 @@
       lnav
 
       rustup
+      go
+      bun
+      goreleaser
 
       #debian-devscripts
       #antigravity
@@ -45,13 +48,10 @@
       (inputs.system-manager.packages.${pkgs.stdenv.hostPlatform.system}.default)
 
       gh
-      bun
 
-      neovide
       telegram-desktop
-      # logseq
       fractal
-      dms-shell
+      #dms-shell
     ]
     ++ (with inputs.rew.packages.${pkgs.stdenv.hostPlatform.system}; [
       wayland-debug
