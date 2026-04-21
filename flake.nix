@@ -64,7 +64,7 @@
             nix-system-graphics.systemModules.default
             ./system.nix
           ];
-          extraSpecialArgs = { inherit inputs system; };
+          specialArgs = { inherit inputs system; };
         };
       }
     );

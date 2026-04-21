@@ -1,4 +1,4 @@
-{ pkgs, system, lib, ... }:
+{ pkgs, system, lib, inputs, ... }:
 {
   config = {
     nixpkgs.hostPlatform = system;
@@ -29,9 +29,9 @@
       grim
       hyprpicker
       wl-clipboard
-      wlr-randr
       lswt
       wlrctl
+      (inputs.system-manager.packages.${system}.default)
     ];
   };
 }
