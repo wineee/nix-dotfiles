@@ -24,16 +24,6 @@
       cloc
       eza
       systemctl-tui
-      # dev
-      nodejs
-      nil
-      neocmakelsp
-      hugo
-      cachix
-
-      # ui
-      pineapple-pictures
-      vlc
 
       # wayland
       grim
@@ -42,9 +32,6 @@
       wlr-randr
       lswt
       wlrctl
-
-      # ai
-      opencode
     ];
   };
 }

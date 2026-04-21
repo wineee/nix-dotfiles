@@ -19,9 +19,14 @@
 
       patchelf
       just
-
       lnav
+      gh
 
+      # dev
+      nodejs
+      nil
+      neocmakelsp
+      hugo
       rustup
       go
       bun
@@ -30,24 +35,23 @@
       #debian-devscripts
       #antigravity
       kiro
-      code-cursor
+      #code-cursor
       codex
       claude-code
       gemini-cli
+      opencode
       
       # nix
       nix-index
       nix-update
       nix-du
       nix-tree
-      nix-init
       comma
       manix
       nixfmt
       nixpkgs-review
+      cachix
       (inputs.system-manager.packages.${pkgs.stdenv.hostPlatform.system}.default)
-
-      gh
 
       telegram-desktop
       fractal
@@ -55,6 +59,8 @@
       kdePackages.konsole
       ghostty
       contour
+      pineapple-pictures
+      vlc
     ]
     ++ (with inputs.rew.packages.${pkgs.stdenv.hostPlatform.system}; [
       wayland-debug
@@ -125,7 +131,7 @@
     "..." = "cd ../..";
   };
 
-  home.stateVersion = "25.05";
+  home.stateVersion = "25.11";
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
