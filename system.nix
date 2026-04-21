@@ -1,4 +1,4 @@
-{ pkgs, system, lib, inputs, ... }:
+{ pkgs, system, lib, ... }:
 {
   config = {
     nixpkgs.hostPlatform = system;
@@ -31,7 +31,6 @@
       wl-clipboard
       lswt
       wlrctl
-      (inputs.system-manager.packages.${system}.default)
     ];
   };
 }

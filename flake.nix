@@ -52,11 +52,19 @@
           extraSpecialArgs = { inherit inputs username system; };
         };
 
-        apps.${system}.default = {
-          type = "app";
-          program = toString (pkgs.writeShellScript "hm-switch" ''
-            exec ${lib.getExe home-manager.packages.${system}.home-manager} switch --flake . --impure "$@"
-          '');
+        apps.${system} = {
+          home = {
+            type = "app";
+            program = toString (pkgs.writeShellScript "hm-switch" ''
+              exec ${lib.getExe home-manager.packages.${system}.home-manager} switch --flake . --impure "$@"
+            '');
+          };
+          system = {
+            type = "app";
+            program = toString (pkgs.writeShellScript "sys-switch" ''
+              exec sudo ${lib.getExe system-manager.packages.${system}.default} switch --flake . "$@"
+            '');
+          };
         };
 
         systemConfigs.default = system-manager.lib.makeSystemConfig {

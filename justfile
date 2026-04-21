@@ -1,8 +1,11 @@
-all: up hm sys
+all: up home system
 
 up:
     nix flake update
-hm:
-    nix run -v -L
-sys:
-    sudo system-manager switch --flake .
+home:
+    nix run .#home -v -L
+system:
+    nix run .#system -v -L
+gc:
+    nix store gc
+    nix store optimise
