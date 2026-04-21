@@ -8,7 +8,7 @@
 
 2. Enable flake
 
-edit `/etc/nix.config` or `~/.config/nix/nix.conf`:
+edit `/etc/nix/nix.config` or `~/.config/nix/nix.conf`:
 
 ```txt
 experimental-features = nix-command flakes
@@ -20,8 +20,12 @@ substituters = https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store https://c
 ```bash
 git clone git@github.com:wineee/nix-dotfiles.git
 cd nix-dotfiles
-nix shell nixpkgs#home-manager
-home-manager switch --flake .
+
+# nix shell nixpkgs#home-manager
+# home-manager switch --flake .
+## just use:
+
+nix run -v -L
 ```
 
 or use nh:

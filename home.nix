@@ -52,6 +52,9 @@
       telegram-desktop
       fractal
       #dms-shell
+      kdePackages.konsole
+      ghostty
+      contour
     ]
     ++ (with inputs.rew.packages.${pkgs.stdenv.hostPlatform.system}; [
       wayland-debug
