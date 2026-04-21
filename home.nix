@@ -27,7 +27,7 @@
       nil
       neocmakelsp
       hugo
-      rustup
+      #rustup
       go
       bun
       goreleaser
@@ -51,7 +51,7 @@
       nixfmt
       nixpkgs-review
       cachix
-      (inputs.system-manager.packages.${pkgs.stdenv.hostPlatform.system}.default)
+      (inputs.system-manager.packages.${system}.default)
 
       telegram-desktop
       fractal

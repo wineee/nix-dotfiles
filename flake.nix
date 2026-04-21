@@ -34,46 +34,38 @@
       ...
     }@inputs:
     let
-      username =
-        let
-          envUser = builtins.getEnv "USER";
-        in
-        if envUser == "" then "rewine" else envUser;
+      username = let u = builtins.getEnv "USER"; in if u == "" then "rewine" else u;
+      lib = nixpkgs.lib;
     in
 
     flake-utils.lib.eachDefaultSystemPassThrough (system:
       let
         pkgs = import nixpkgs {
           inherit system;
-          config = {
-            allowUnfree = true;
-          };
+          config.allowUnfree = true;
         };
       in
       {
-      homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
+        homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [ ./home.nix ];
+          extraSpecialArgs = { inherit inputs username system; };
+        };
 
-        modules = [
-          ./home.nix
-        ];
+        apps.${system}.default = {
+          type = "app";
+          program = toString (pkgs.writeShellScript "hm-switch" ''
+            exec ${lib.getExe home-manager.packages.${system}.home-manager} switch --flake . --impure "$@"
+          '');
+        };
 
-        extraSpecialArgs = { inherit inputs username system; };
-      };
-
-      apps.${system}.default = {
-        type = "app";
-        program = "${pkgs.writeShellScript "hm-switch" ''
-          exec ${home-manager.packages.${system}.home-manager}/bin/home-manager switch --flake . --impure "$@"
-        ''}";
-      };
-
-      systemConfigs.default = system-manager.lib.makeSystemConfig {
-        modules = [
-          nix-system-graphics.systemModules.default
-          ./system.nix
-        ];
-        extraSpecialArgs = { inherit inputs system; };
-      };
-    });
+        systemConfigs.default = system-manager.lib.makeSystemConfig {
+          modules = [
+            nix-system-graphics.systemModules.default
+            ./system.nix
+          ];
+          extraSpecialArgs = { inherit inputs system; };
+        };
+      }
+    );
 }
