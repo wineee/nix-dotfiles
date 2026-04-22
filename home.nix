@@ -27,7 +27,7 @@
       nil
       neocmakelsp
       hugo
-      #rustup
+      rustup
       go
       bun
       goreleaser
