@@ -35,7 +35,6 @@
     }@inputs:
     let
       username = let u = builtins.getEnv "USER"; in if u == "" then "rewine" else u;
-      lib = nixpkgs.lib;
     in
 
     flake-utils.lib.eachDefaultSystemPassThrough (system:
@@ -56,13 +55,13 @@
           home = {
             type = "app";
             program = toString (pkgs.writeShellScript "hm-switch" ''
-              exec ${lib.getExe home-manager.packages.${system}.home-manager} switch --flake . --impure "$@"
+              exec ${home-manager.packages.${system}.home-manager}/bin/home-manager switch --flake . --impure "$@"
             '');
           };
           system = {
             type = "app";
             program = toString (pkgs.writeShellScript "sys-switch" ''
-              exec sudo ${lib.getExe system-manager.packages.${system}.default} switch --flake . "$@"
+              exec sudo ${system-manager.packages.${system}.default}/bin/system-manager switch --flake . "$@"
             '');
           };
         };
