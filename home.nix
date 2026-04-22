@@ -47,7 +47,6 @@
       nix-du
       nix-tree
       comma
-      manix
       nixfmt
       nixpkgs-review
       cachix
