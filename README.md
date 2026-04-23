@@ -5,10 +5,12 @@
 1. Install Nix 
 
 > sh <(curl https://mirrors.tuna.tsinghua.edu.cn/nix/latest/install) --daemon
+(or --no-daemon for Single User)
+
 
 2. Enable flake
 
-edit `/etc/nix/nix.config` or `~/.config/nix/nix.conf`:
+edit `/etc/nix/nix.conf` (or `~/.config/nix/nix.conf`):
 
 ```txt
 experimental-features = nix-command flakes
