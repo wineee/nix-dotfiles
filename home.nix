@@ -22,6 +22,7 @@
       lnav
       gh
 
+
       # dev
       nodejs
       nil
@@ -60,6 +61,7 @@
       contour
       pineapple-pictures
       vlc
+      hyprland
     ]
     ++ (with inputs.rew.packages.${pkgs.stdenv.hostPlatform.system}; [
       wayland-debug
