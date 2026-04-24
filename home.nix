@@ -74,15 +74,18 @@ in
       (inputs.system-manager.packages.${system}.default)
 
       telegram-desktop
-      fractal
       #dms-shell
       ghostty
       contour
       pineapple-pictures
       vlc
       hyprland
+      fractal
     ]
-    ++ (wrapQtApps (with pkgs; [ kdePackages.konsole ]))
+    ++ (wrapQtApps (with pkgs; [
+      kdePackages.konsole
+      kdePackages.kate
+    ]))
     ++ (with inputs.rew.packages.${pkgs.stdenv.hostPlatform.system}; [
       wayland-debug
       #wldbg
