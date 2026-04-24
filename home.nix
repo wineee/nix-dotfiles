@@ -6,6 +6,26 @@
   ...
 }:
 
+let
+  wrapQtApps = apps:
+    builtins.map (app:
+      pkgs.symlinkJoin {
+        name = "${app.pname or app.name}-wrapped";
+        paths = [ app ];
+        nativeBuildInputs = [ pkgs.makeWrapper ];
+        postBuild = ''
+          if [ -d $out/bin ]; then
+            for p in $out/bin/*; do
+              if [ -f "$p" ] || [ -L "$p" ]; then
+                wrapProgram "$p" \
+                  --prefix QT_PLUGIN_PATH : "${pkgs.kdePackages.breeze}/lib/qt-6/plugins"
+              fi
+            done
+          fi
+        '';
+      }
+    ) apps;
+in
 {
   home.username = username;
   home.homeDirectory = "/home/${username}";
@@ -56,13 +76,13 @@
       telegram-desktop
       fractal
       #dms-shell
-      kdePackages.konsole
       ghostty
       contour
       pineapple-pictures
       vlc
       hyprland
     ]
+    ++ (wrapQtApps (with pkgs; [ kdePackages.konsole ]))
     ++ (with inputs.rew.packages.${pkgs.stdenv.hostPlatform.system}; [
       wayland-debug
       #wldbg
