@@ -27,7 +27,8 @@ cd nix-dotfiles
 # home-manager switch --flake .
 ## just use:
 
-nix run -v -L
+nix run .#home -v -L
+nix run .#system -v -L
 ```
 
 or use nh:
