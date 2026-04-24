@@ -18,7 +18,7 @@ let
             for p in $out/bin/*; do
               if [ -f "$p" ] || [ -L "$p" ]; then
                 wrapProgram "$p" \
-                  --prefix QT_PLUGIN_PATH : "${pkgs.kdePackages.breeze}/lib/qt-6/plugins"
+                  --prefix QT_PLUGIN_PATH : "${pkgs.kdePackages.breeze}/lib/qt-6/plugins:${pkgs.kdePackages.fcitx5-qt}/lib/qt-6/plugins"
               fi
             done
           fi
