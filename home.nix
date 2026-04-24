@@ -7,7 +7,10 @@
 }:
 
 let
-  wrapQtApps = apps:
+  makeQtPluginPathArgs = plugins:
+    "--prefix QT_PLUGIN_PATH : \"${builtins.concatStringsSep ":" (builtins.map (p: "${p}/lib/qt-6/plugins") plugins)}\"";
+
+  wrapQtApps = apps: wrapArgs:
     builtins.map (app:
       pkgs.symlinkJoin {
         name = "${app.pname or app.name}-wrapped";
@@ -18,7 +21,7 @@ let
             for p in $out/bin/*; do
               if [ -f "$p" ] || [ -L "$p" ]; then
                 wrapProgram "$p" \
-                  --prefix QT_PLUGIN_PATH : "${pkgs.kdePackages.breeze}/lib/qt-6/plugins:${pkgs.kdePackages.fcitx5-qt}/lib/qt-6/plugins"
+                  ${wrapArgs}
               fi
             done
           fi
@@ -82,10 +85,16 @@ in
       hyprland
       fractal
     ]
-    ++ (wrapQtApps (with pkgs; [
-      kdePackages.konsole
-      kdePackages.kate
-    ]))
+    ++ (wrapQtApps
+      (with pkgs; [
+        kdePackages.konsole
+        kdePackages.kate
+      ])
+      (makeQtPluginPathArgs (with pkgs; [
+        kdePackages.breeze
+        kdePackages.fcitx5-qt
+      ]))
+    )
     ++ (with inputs.rew.packages.${pkgs.stdenv.hostPlatform.system}; [
       wayland-debug
       #wldbg
