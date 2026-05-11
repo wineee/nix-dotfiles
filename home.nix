@@ -52,6 +52,7 @@ in
       neocmakelsp
       hugo
       rustup
+      zig
       go
       bun
       goreleaser
