@@ -52,7 +52,7 @@ in
       neocmakelsp
       hugo
       rustup
-      zig
+      zig_0_15
       go
       bun
       goreleaser
@@ -65,6 +65,7 @@ in
       claude-code
       gemini-cli
       opencode
+      pi-coding-agent
       
       # nix
       nix-index
