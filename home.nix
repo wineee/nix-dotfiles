@@ -44,7 +44,7 @@ in
       just
       lnav
       gh
-
+      trzsz-ssh
 
       # dev
       nodejs
@@ -160,6 +160,10 @@ in
   home.sessionVariables = {
     EDITOR = "nvim";
   };
+
+  home.sessionPath = [
+    "$HOME/.cargo/bin"
+  ];
 
   home.shellAliases = {
     g = "git";
