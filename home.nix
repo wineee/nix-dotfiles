@@ -62,10 +62,10 @@ in
       kiro
       #code-cursor
       codex
-      claude-code
-      gemini-cli
+      #claude-code
       opencode
       pi-coding-agent
+      rtk
       
       # nix
       nix-index
