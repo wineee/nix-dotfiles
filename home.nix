@@ -65,7 +65,6 @@ in
       #claude-code
       opencode
       pi-coding-agent
-      rtk
       
       # nix
       nix-index
@@ -84,7 +83,6 @@ in
       contour
       pineapple-pictures
       vlc
-      hyprland
       fractal
     ]
     ++ (wrapQtApps
