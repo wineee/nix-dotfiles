@@ -46,6 +46,30 @@ in
       gh
       trzsz-ssh
 
+      # cli (from system)
+      neovim
+      fastfetch
+      htop
+      ugrep
+      ripgrep
+      yazi
+      fd
+      libtree
+      tldr
+      duf
+      ncdu
+      pstree
+      cloc
+      eza
+      systemctl-tui
+
+      # wayland (from system)
+      grim
+      hyprpicker
+      wl-clipboard
+      lswt
+      wlrctl
+
       # dev
       nodejs
       nil
@@ -65,6 +89,7 @@ in
       #claude-code
       opencode
       pi-coding-agent
+      (inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.omp)
       
       # nix
       nix-index
@@ -84,6 +109,8 @@ in
       pineapple-pictures
       vlc
       fractal
+
+      labwc
     ]
     ++ (wrapQtApps
       (with pkgs; [
@@ -100,7 +127,7 @@ in
       #wldbg
       #xcursor-viewer
       #wlhax
-      git-commit-helper
+      #git-commit-helper
     ]);
 
   fonts.fontconfig.enable = true; # Allow fontconfig to discover fonts in home.packages
