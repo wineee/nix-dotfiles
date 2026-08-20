@@ -82,7 +82,8 @@ in
       goreleaser
 
       #debian-devscripts
-      #antigravity
+      antigravity-ide
+      antigravity-cli
       kiro
       #code-cursor
       codex
