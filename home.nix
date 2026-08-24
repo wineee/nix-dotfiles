@@ -76,7 +76,6 @@ in
       neocmakelsp
       hugo
       rustup
-      zig_0_15
       go
       bun
       goreleaser
@@ -112,6 +111,7 @@ in
       fractal
 
       labwc
+      kdePackages.kwin
     ]
     ++ (wrapQtApps
       (with pkgs; [
