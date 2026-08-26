@@ -62,6 +62,8 @@ in
       cloc
       eza
       systemctl-tui
+      apitrace
+      uftrace
 
       # wayland (from system)
       grim

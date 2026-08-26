@@ -14,5 +14,8 @@
       ];
     system-manager.allowAnyDistro = true;
     system-graphics.enable = true;
+    environment.systemPackages = with pkgs; [
+      tig
+    ];
   };
 }
