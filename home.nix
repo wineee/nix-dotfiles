@@ -45,6 +45,7 @@ in
       lnav
       gh
       trzsz-ssh
+      binsider
 
       # cli (from system)
       neovim
@@ -83,8 +84,6 @@ in
       goreleaser
 
       #debian-devscripts
-      antigravity-ide
-      antigravity-cli
       kiro
       #code-cursor
       codex
@@ -92,6 +91,7 @@ in
       opencode
       pi-coding-agent
       (inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.omp)
+      (inputs.deepseek-harness.packages.${pkgs.stdenv.hostPlatform.system}.default)
       
       # nix
       nix-index

@@ -16,6 +16,7 @@
     system-graphics.enable = true;
     environment.systemPackages = with pkgs; [
       tig
+      contour
     ];
   };
 }

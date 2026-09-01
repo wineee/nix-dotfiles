@@ -24,6 +24,10 @@
       url = "github:wineee/nur-packages";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    deepseek-harness = {
+      url = "git+ssh://git@github.com/Moraxyc/deepseek-harness.nix.git";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -35,6 +39,7 @@
       system-manager,
       nix-system-graphics,
       rew,
+      deepseek-harness,
       ...
     }@inputs:
     let
